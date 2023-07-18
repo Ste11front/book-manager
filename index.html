@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Book list</h1>
+    </header>
+    <main>
+            <div>
+                <button onclick="orderByTitle()">Ordina per nome</button>
+                <button onclick="orderByDate()">Ordina per data</button>
+            </div>
+            <div id="book-container">
+    
+            </div>
+        <div class="spacer"></div>
+        <div class="add-book-container">
+            <input id="add-book-input" type="text">
+            <button onclick="addBook()" id="add-book-btn">Aggiungi</button>
+        </div>
+    </main>
+</body>
+
+<script src="./model/book.js"></script>
+<script src="./model/manager.js"></script>
+<script src="./services/db-service.js"></script>
+<script src="./services/data-service.js"></script>
+<script src="./services/storage-service.js"></script>
+<script src="./main.js"></script>
+</html>
