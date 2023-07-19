@@ -1,85 +1,49 @@
-let manager;
 
-DBService.getAllBooks().then(books => {
-    manager = new Manager(books);
-    render();
-})
+// const service = new DBService();
+
+// service.getPosts();
 
 
-function render() {
+DBService.readBooks().then(res => render(res));
 
-    const bookContainer = document.getElementById('book-container');
-    bookContainer.innerHTML = '';
+function render(books){
 
-    for (let i = 0; i < manager.bookArray.length; i++) {
+    const mainList = document.getElementById('main-list');
+    mainList.innerHTML = '';
 
-        const book = manager.bookArray[i];
-
-        const div = document.createElement('div');
-        div.classList.add('book-card');
-
-        if (todo.isCompleted) {
-            div.style.borderColor = 'lime';
-        }
-
-        const titleStrong = document.createElement('strong');
-        const coverCard = document.createElement('img');
-        coverCard.src = book.cover
-        const titleNode = document.createTextNode(book.title);
-
-        titleStrong.appendChild(titleNode);
-
-        div.appendChild(coverCard);
-        div.appendChild(titleStrong);
-
-
-        const deleteBtn = document.createElement('button');
-        const deleteNode = document.createTextNode('cancella');
-        deleteBtn.addEventListener('click', () => {
-
-            DBService.deleteBook(book.id).then(() => {
-                manager.deleteBook(i);
-                render();
-            });
-
-
-        });
-
-        deleteBtn.appendChild(deleteNode);
-        div.appendChild(deleteBtn);
-
-
-        const detailBtn = document.createElement('button');
-        const detailBtnNode = document.createTextNode('dettaglio');
-        detailBtn.addEventListener('click', () => {
-            sessionStorage.setItem('selectedTodo', JSON.stringify(todo));
-            window.location.href = './detail.html';
-        });
-
-        detailBtn.appendChild(detailBtnNode);
-        div.appendChild(detailBtn);
-
-        bookContainer.appendChild(div);
+    for (const book of books) {
+        mainList.innerHTML += `<li><a href="./detail.html?id=${book.id}">${book.title}</a></li>`
     }
-}
-
-function orderByTitle() {
-    manager.orderBooksByTitle();
-    render();
-}
-
-function orderByDate() {
-    manager.orderBooksByDate();
-    render();
-}
 
 
-function addBook() {
-    const input = document.getElementById('add-book-input')
-    const newBookTitle = input.value;
-    if (newBookTitle.trim() !== '') {
-        manager.addBookWithTitle(newBookTitle);
-        input.value = '';
-    }
-    render();
 }
+
+// DBService.readSingleBook('1').then(res => console.log('read single',res));
+
+// DBService.deleteBook('2').then(res => console.log('delete',res));
+
+// const mioBook = {
+//     title: 'super libro su js',
+//     cover: "https://loremflickr.com/640/480/business",
+//     dop: "2022-11-18T20:16:45.416Z",
+//     genre: "informatica",
+//     imdb: "6344666163453tdrdg",
+//     author: "Manuela Ariotti"
+// }
+
+// DBService.createBook(mioBook);
+
+
+// const manuelaBook = {
+//     title: 'super libro su js',
+//     cover: "https://loremflickr.com/640/480/business",
+//     dop: "2022-11-18T20:16:45.416Z",
+//     genre: "informatica",
+//     id: "53",
+//     imdb: "6344666163453tdrdg",
+//     author: "Manuela Ariotti"
+// }
+
+// manuelaBook.title = manuelaBook.title + " NUOVA EDIZIONE PIU' FIGA"
+
+// DBService.updateBook(manuelaBook);
