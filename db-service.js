@@ -26,7 +26,7 @@ class DBService {
     }
 
     static readSingleBook(id) {
-        const url = DBService.BASE_URL + "Books/" + id;
+        const url = DBService.BASE_URL + "books/" + id;
 
         return fetch(url, { method: "get" })
             .then((resp) => resp.json())
@@ -34,7 +34,7 @@ class DBService {
 
     /// PUT (U)
     static updateBook(modifiedBook) {
-        const url = DBService.BASE_URL + "Books/" + modifiedBook.id;
+        const url = DBService.BASE_URL + "books/" + modifiedBook.id;
 
         fetch(url, {method: 'put', 
                     body: JSON.stringify(modifiedBook), 
@@ -45,7 +45,7 @@ class DBService {
 
     /// DELETE (D)
     static deleteBook(id) {
-        const url = DBService.BASE_URL + "Books/" + id;
+        const url = DBService.BASE_URL + "books/" + id;
 
         return fetch(url, {method: 'DELETE'})
             .then(resp => resp.json())
