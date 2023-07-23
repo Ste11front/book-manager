@@ -6,7 +6,7 @@ class DBService {
 
     /// POST (C)
     static createBook(newBook) {
-        const url = DBService.BASE_URL + "Books";
+        const url = DBService.BASE_URL + "books";
 
         fetch(url, {method: 'post', 
                     body: JSON.stringify(newBook), 
@@ -18,7 +18,7 @@ class DBService {
 
     /// GET  (R)
     static readBooks() {
-        const url = DBService.BASE_URL + "Books";
+        const url = DBService.BASE_URL + "books";
 
         return fetch(url, { method: "get" })
             .then((resp) => resp.json())
