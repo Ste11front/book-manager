@@ -1,7 +1,7 @@
 books
-
-title: FAKER.JS , RANDOM.WORD
-author: FAKER.JS , NAME.FULLNAME
-dop: FAKER.JS , DATE.PAST
-genre: STRING
-cover : FAKER.JS , IMAGE.IMAGE
+//    "title": "FAKER.JS , RANDOM.WORD",
+//    "author": "FAKER.JS , NAME.FULLNAME",
+//    "dop": "FAKER.JS , DATE.PAST",
+//    "genre": STRING,
+//    "cover": FAKER.JS , IMAGE.IMAGE,
+// }
